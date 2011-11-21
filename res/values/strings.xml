@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Roku</string>
+    <string name="button_left">←</string>
+    <string name="button_right">→</string>
+    <string name="button_top">↑</string>
+    <string name="button_bottom">↓</string>
+    <string name="button_ok">ok</string>
+    <string name="empty"></string>
+    <string name="button_reverse">↞</string>
+    <string name="button_play">⇨</string>
+    <string name="button_forward">↠</string>
+    <string name="button_info">Info</string>
+    <string name="button_replay">Replay</string>
+    <string name="button_back">Back</string>
+    <string name="button_home">Home</string>
+
+</resources>
