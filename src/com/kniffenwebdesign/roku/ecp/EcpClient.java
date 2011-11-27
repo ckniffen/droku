@@ -37,7 +37,7 @@ public class EcpClient {
     
 	public void executeRequest(String action){
 		HttpClient client = new DefaultHttpClient();
-		String uri = "http://" + this.ipAddress + ":" + this.toString() + "/" + action;
+		String uri = "http://" + this.ipAddress + ":" + this.port + "/" + action;
 		Log.v(TAG, uri);
 		HttpUriRequest request = new HttpPost(uri);
 		
