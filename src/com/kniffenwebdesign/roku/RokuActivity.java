@@ -19,14 +19,16 @@ public class RokuActivity extends Activity {
         
         EcpClient.getInstance().setIpAddress("192.168.1.109");
         
-        //final ImageView buttonLeft = (ImageView) findViewById(R.id.button_left);
-        //final ImageView buttonRight = (ImageView) findViewById(R.id.button_right);
         final ImageView buttonUp = (ImageView) findViewById(R.id.button_up);
         final ImageView buttonDown = (ImageView) findViewById(R.id.button_down);
+        final ImageView buttonLeft = (ImageView) findViewById(R.id.button_left);
+        final ImageView buttonRight = (ImageView) findViewById(R.id.button_right);
         final ImageView buttonSelect = (ImageView) findViewById(R.id.button_select);
+        
         final Button buttonReverse = (Button) findViewById(R.id.button_reverse);
         final Button buttonPlay = (Button) findViewById(R.id.button_play);
         final Button buttonForward = (Button) findViewById(R.id.button_forward);
+        
         final ImageView buttonBack = (ImageView) findViewById(R.id.button_back);
         final ImageView buttonHome = (ImageView) findViewById(R.id.button_home);
         
@@ -42,7 +44,6 @@ public class RokuActivity extends Activity {
             }
         });
         
-        /*
         buttonLeft.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             	 Key.LEFT.keyPress();
@@ -54,7 +55,7 @@ public class RokuActivity extends Activity {
             	 Key.RIGHT.keyPress();
             }
         });
-        */
+        
         buttonUp.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             	 Key.UP.keyPress();
