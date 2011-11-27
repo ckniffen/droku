@@ -15,18 +15,29 @@ public class EcpClient {
 	private static final String TAG = "EcpClient";
     private static final EcpClient instance = new EcpClient();
     
-    // Private constructor prevents instantiation from other classes
+    protected String ipAddress = "";
+    protected int port = 8060;
+
+	// Private constructor prevents instantiation from other classes
 	private EcpClient(){
 		
 	}
 	
     public static EcpClient getInstance() {
-            return instance;
+        return instance;
     }
+    
+    public String getIpAddress() {
+		return this.ipAddress;
+	}
+
+	public void setIpAddress(String ipAddress) {
+		this.ipAddress = ipAddress;
+	}
     
 	public void executeRequest(String action){
 		HttpClient client = new DefaultHttpClient();
-		String uri = "http://192.168.1.109:8060/" + action;
+		String uri = "http://" + this.ipAddress + ":" + this.toString() + "/" + action;
 		Log.v(TAG, uri);
 		HttpUriRequest request = new HttpPost(uri);
 		

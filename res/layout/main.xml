@@ -40,38 +40,40 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal" >
-
-            <Button
+
+            <ImageView
                 android:id="@+id/button_up"
-                android:layout_width="58dp"
-                android:layout_height="58dp"
-                android:text="@string/button_top" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:src="@drawable/button_up" />
             
         </TableRow>
-
+
         <TableRow
             android:id="@+id/tableRow2"
-            android:layout_width="200dp"
-            android:layout_height="58dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:gravity="center_horizontal" >
-
-            <Button
+			<ImageView
                 android:id="@+id/button_left"
-                android:layout_width="58dp"
-                android:layout_height="58dp"
-                android:text="@string/button_left" />
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:padding="0dp"
+                android:src="@drawable/button_left" />
 
-            <Button
+            <ImageView
                 android:id="@+id/button_select"
-                android:layout_width="58dp"
-                android:layout_height="58dp"
-                android:text="@string/button_ok" />
-
-            <Button
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/button_select" />
+             
+             <ImageView
                 android:id="@+id/button_right"
-                android:layout_width="58dp"
-                android:layout_height="58dp"
-                android:text="@string/button_right" />
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:padding="0dp"
+                android:src="@drawable/button_right" />
             
         </TableRow>
 
@@ -80,12 +82,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal" >
-
-            <Button
+
+            <ImageView
                 android:id="@+id/button_down"
-                android:layout_width="58dp"
-                android:layout_height="58dp"
-                android:text="@string/button_bottom" />
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:src="@drawable/button_down" />
 
         </TableRow>
 
