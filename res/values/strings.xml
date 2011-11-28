@@ -14,5 +14,6 @@
     <string name="button_replay">Replay</string>
     <string name="button_back">Back</string>
     <string name="button_home">Home</string>
+    <string name="channels">Channels</string>
 
 </resources>

@@ -141,5 +141,11 @@
             android:text="@string/button_info" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/button_channels"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/channels" />
 
 </LinearLayout>

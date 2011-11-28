@@ -1,6 +1,7 @@
 package com.kniffenwebdesign.roku;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -31,6 +32,9 @@ public class RokuActivity extends Activity {
         
         final ImageView buttonBack = (ImageView) findViewById(R.id.button_back);
         final ImageView buttonHome = (ImageView) findViewById(R.id.button_home);
+        
+        final Button buttonChannels = (Button) findViewById(R.id.button_channels);
+        
         
         buttonBack.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -90,6 +94,13 @@ public class RokuActivity extends Activity {
             public void onClick(View v) {
             	 Key.FORWARD.keyPress();
             }
-        });   
+        });
+        
+        buttonChannels.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            	Intent i = new Intent(RokuActivity.this, ChannelsActivity.class);
+            	startActivity(i);
+            }
+       });
     }  
 }
