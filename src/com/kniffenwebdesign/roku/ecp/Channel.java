@@ -22,7 +22,7 @@ public class Channel {
 	}
 
 	public String getImageSrc() {
-		return imageSrc;
+		return EcpClient.getInstance().getChannelIconUrl(this.id);
 	}
 
 	public void setImageSrc(String imageSrc) {

@@ -96,7 +96,11 @@ public class EcpClient {
 			sendCharacter(string.charAt(i));
 		}
 	}
-
+	
+	public String getChannelIconUrl(Integer id){
+		return "http://" + this.ipAddress + ":" + this.port + "/icon/" + id;
+	}
+	
 	public ArrayList<String> getChannels(){
 		
 		HttpClient client = new DefaultHttpClient();
