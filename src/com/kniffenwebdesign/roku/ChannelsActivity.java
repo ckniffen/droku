@@ -11,7 +11,6 @@ import android.widget.ListView;
 
 public class ChannelsActivity extends Activity{
 	private ListView lv1;
-	private String lv_arr[] ={ "Android", "iPhone", "BlackBerry", "AndroidPeople"};
 	
 	@Override
 	public void onCreate(Bundle icicle)

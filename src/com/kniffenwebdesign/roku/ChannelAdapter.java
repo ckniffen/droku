@@ -17,6 +17,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 
 import com.kniffenwebdesign.roku.ecp.Channel;
+import com.kniffenwebdesign.roku.ecp.EcpClient;
+import com.kniffenwebdesign.roku.ecp.Key;
 
 public class ChannelAdapter extends ArrayAdapter<Channel> {
 	private ArrayList<Channel> items;
@@ -33,9 +35,17 @@ public class ChannelAdapter extends ArrayAdapter<Channel> {
                 LayoutInflater vi = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 v = vi.inflate(R.layout.channel_list_item, null);
             }
-            Channel channel = items.get(position);
+            final Channel channel = items.get(position);
             if (channel != null) {
         		ImageView channelIcon = (ImageView)v.findViewById(R.id.channel_icon);
+        		
+        		channelIcon.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                    	EcpClient.getInstance().launchChannel(channel.getId());
+                    }
+                    
+               });
+        		
 				try {
 					Bitmap bitmap = drawableFromUrl(channel.getImageSrc());
 	        		channelIcon.setImageBitmap(bitmap);

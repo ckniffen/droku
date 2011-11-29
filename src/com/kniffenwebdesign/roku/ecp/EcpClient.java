@@ -1,19 +1,11 @@
 package com.kniffenwebdesign.roku.ecp;
 
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
 
@@ -66,6 +58,7 @@ public class EcpClient {
 	public void sendCharacter(char character) {
 		executeAction("keydown/Lit_" + character);
 	}
+	
 
 	public void sendString(String string) {
 		for (int i = 0; i < string.length() - 1; i++) {
@@ -73,27 +66,17 @@ public class EcpClient {
 		}
 	}
 	
+	public void launchChannel(Integer channelId){
+		this.executeAction("/launch/" + channelId);
+	}
+	
 	public String getChannelIconUrl(Integer id){
 		return this.getBaseUrl() + "/query/icon/" + id;
 	}
 	
 	public ArrayList<Channel> getChannels(){	
-		HttpClient client = new DefaultHttpClient();
-		String uri = this.getBaseUrl() + "/query/apps";
-		Log.d(LOG_TAG, uri);
-		HttpUriRequest request = new HttpGet(uri);
-
-		String responseText = null;
-		try {
-			HttpResponse response = client.execute(request);
-			responseText = HttpUtil.getResponseBody(response);
-		} catch (ClientProtocolException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		String url = this.getBaseUrl() + "/query/apps";
+		String responseText = HttpUtil.request(url, "GET");
 		
 		try {
 			/** Handling XML */
@@ -102,15 +85,14 @@ public class EcpClient {
 			XMLReader xr = sp.getXMLReader();
 			
 			/** Create handler to handle XML Tags ( extends DefaultHandler ) */
-			ChannelParser myXMLHandler = new ChannelParser();
+			ChannelParser channelXmlHandler = new ChannelParser();
 			
 			ByteArrayInputStream inputStream = new ByteArrayInputStream(responseText.getBytes());
 			
-			xr.setContentHandler(myXMLHandler);
+			xr.setContentHandler(channelXmlHandler);
 			xr.parse(new InputSource( inputStream ));
-
 		} catch (Exception e) {
-			Log.e(LOG_TAG, "XML Pasing Excpetion = ", e);
+			Log.e(LOG_TAG, "XML Pasing Excpetion", e);
 		}
 
 		/** Get result from MyXMLHandler SitlesList Object */
