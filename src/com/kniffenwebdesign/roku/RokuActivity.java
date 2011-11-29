@@ -3,7 +3,6 @@ package com.kniffenwebdesign.roku;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -33,8 +32,7 @@ public class RokuActivity extends Activity {
         final ImageView buttonBack = (ImageView) findViewById(R.id.button_back);
         final ImageView buttonHome = (ImageView) findViewById(R.id.button_home);
         
-        final Button buttonChannels = (Button) findViewById(R.id.button_channels);
-        
+        final Button buttonChannels = (Button) findViewById(R.id.button_channels);  
         
         buttonBack.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

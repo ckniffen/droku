@@ -2,7 +2,6 @@ package com.kniffenwebdesign.roku.ecp;
 
 public class Channel {
 	Integer id = null;
-	String imageSrc = null;
 	String version = null;
 	String name = null;
 	
@@ -28,10 +27,6 @@ public class Channel {
 
 	public String getImageSrc() {
 		return EcpClient.getInstance().getChannelIconUrl(this.id);
-	}
-
-	public void setImageSrc(String imageSrc) {
-		this.imageSrc = imageSrc;
 	}
 
 	public String getVersion() {
