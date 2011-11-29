@@ -10,13 +10,14 @@ public class ChannelParser extends DefaultHandler {
 
 	Boolean currentElement = false;
 	String currentValue = null;
-	public static ArrayList<String> channelList = null;
+	Channel currentChannel = null;
+	public static ArrayList<Channel> channelList = null;
 
-	public static ArrayList<String> getSitesList() {
+	public static ArrayList<Channel> getSitesList() {
 		return channelList;
 	}
 
-	public static void setSitesList(ArrayList<String> aChannelList) {
+	public static void setSitesList(ArrayList<Channel> aChannelList) {
 		channelList = aChannelList;
 	}
 
@@ -31,9 +32,17 @@ public class ChannelParser extends DefaultHandler {
 
 		if (localName.equals("apps")) {
 			/** Start */
-			channelList = new ArrayList<String>();
+			channelList = new ArrayList<Channel>();
 		}
-
+		
+		if (localName.equals("app")){
+			Integer id = Integer.parseInt(attributes.getValue("id"));
+			String version = attributes.getValue("version");
+			
+			currentChannel = new Channel();
+			currentChannel.setId(id);
+			currentChannel.setVersion(version);
+		}
 	}
 
 	/**
@@ -47,7 +56,8 @@ public class ChannelParser extends DefaultHandler {
 
 		/** set value */
 		if (localName.equals("app")) {
-			channelList.add(currentValue);
+			currentChannel.setName(currentValue);
+			channelList.add(currentChannel);
 		}
 	}
 

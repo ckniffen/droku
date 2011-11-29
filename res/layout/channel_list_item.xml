@@ -6,9 +6,9 @@
 
     <ImageView
         android:id="@+id/channel_icon"
-        android:layout_width="336px"
-        android:layout_height="210px"
-        android:scaleType="centerCrop"
-        android:src="@drawable/channel_fpo" />
+        android:layout_width="match_parent"
+        android:layout_height="141dp"
+        android:layout_weight="80dp"
+        android:scaleType="centerCrop" />
 
 </LinearLayout>

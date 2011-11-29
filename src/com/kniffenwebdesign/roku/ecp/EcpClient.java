@@ -98,10 +98,10 @@ public class EcpClient {
 	}
 	
 	public String getChannelIconUrl(Integer id){
-		return "http://" + this.ipAddress + ":" + this.port + "/icon/" + id;
+		return "http://" + this.ipAddress + ":" + this.port + "/query/icon/" + id;
 	}
 	
-	public ArrayList<String> getChannels(){
+	public ArrayList<Channel> getChannels(){
 		
 		HttpClient client = new DefaultHttpClient();
 		String uri = "http://" + this.ipAddress + ":" + this.port + "/query/apps";

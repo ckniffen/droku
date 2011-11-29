@@ -6,6 +6,11 @@ public class Channel {
 	String version = null;
 	String name = null;
 	
+	
+	public Channel() {
+	
+	}
+	
 	public Channel(Integer id, String version, String name) {
 		super();
 		this.id = id;

@@ -2,6 +2,7 @@ package com.kniffenwebdesign.roku;
 
 import java.util.ArrayList;
 
+import com.kniffenwebdesign.roku.ecp.Channel;
 import com.kniffenwebdesign.roku.ecp.EcpClient;
 
 import android.app.Activity;
@@ -23,9 +24,9 @@ public class ChannelsActivity extends Activity{
 		super.onCreate(icicle);
 		setContentView(R.layout.channels);
 		EcpClient.getInstance().setIpAddress("192.168.1.109");
-		ArrayList<String> channels = EcpClient.getInstance().getChannels();
+		ArrayList<Channel> channels = EcpClient.getInstance().getChannels();
 		lv1 = (ListView)findViewById(R.id.ListView01);
 		// By using setAdpater method in listview we an add string array in list.
-		lv1.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, channels));
+		lv1.setAdapter(new ChannelAdapter(this, R.layout.channel_list_item, channels));
 	}
 }
