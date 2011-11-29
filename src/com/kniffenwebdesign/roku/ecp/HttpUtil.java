@@ -9,13 +9,47 @@ import org.apache.http.HeaderElement;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.protocol.HTTP;
 
 import android.net.ParseException;
+import android.util.Log;
 
 public class HttpUtil {
-	protected static String _getResponseBody(final HttpEntity entity) throws IOException, ParseException {
+	private static final String LOG_TAG = "HttpUtil";
 
+	public static String request(String url, String method){
+		HttpClient client = new DefaultHttpClient();
+		HttpUriRequest request = null;
+
+		Log.d(LOG_TAG, url);
+	
+		if(method.equals("GET")){
+			request = new HttpGet(url);
+		} else {
+			request = new HttpPost(url);
+		}
+		
+		String responseText = null;
+		try {
+			HttpResponse response = client.execute(request);
+			responseText = HttpUtil.getResponseBody(response);
+		} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return responseText;
+	}
+	
+	protected static String _getResponseBody(final HttpEntity entity) throws IOException, ParseException {
 		if (entity == null) {
 			throw new IllegalArgumentException("HTTP entity may not be null");
 		}
@@ -27,8 +61,7 @@ public class HttpUtil {
 		}
 
 		if (entity.getContentLength() > Integer.MAX_VALUE) {
-			throw new IllegalArgumentException(
-					"HTTP entity too large to be buffered in memory");
+			throw new IllegalArgumentException("HTTP entity too large to be buffered in memory");
 		}
 
 		String charset = getContentCharSet(entity);

@@ -20,7 +20,7 @@ import org.xml.sax.XMLReader;
 import android.util.Log;
 
 public class EcpClient {
-	private static final String TAG = "EcpClient";
+	private static final String LOG_TAG = "EcpClient";
 	private static final EcpClient instance = new EcpClient();
 
 	protected String ipAddress = "";
@@ -46,40 +46,25 @@ public class EcpClient {
 	public String getBaseUrl(){
 		return "http://" + this.ipAddress + ":" + this.port;
 	}
-	public String executeRequest(String action) {
-		HttpClient client = new DefaultHttpClient();
-		String uri = this.getBaseUrl() + "/" + action;
-		Log.v(TAG, uri);
-		HttpUriRequest request = new HttpPost(uri);
-
-		String responseText = null;
-		try {
-			HttpResponse response = client.execute(request);
-			HttpUtil.getResponseBody(response);
-		} catch (ClientProtocolException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return responseText;
+	public String executeAction(String action) {
+		String url = this.getBaseUrl() + "/" + action;
+		return HttpUtil.request(url, "POST");
 	}
 
 	public void keyPress(String key) {
-		executeRequest("keypress/" + key);
+		executeAction("keypress/" + key);
 	}
 
 	public void keyUp(String key) {
-		executeRequest("keyup/" + key);
+		executeAction("keyup/" + key);
 	}
 
 	public void keyDown(String key) {
-		executeRequest("keydown/" + key);
+		executeAction("keydown/" + key);
 	}
 
 	public void sendCharacter(char character) {
-		executeRequest("keydown/Lit_" + character);
+		executeAction("keydown/Lit_" + character);
 	}
 
 	public void sendString(String string) {
@@ -95,7 +80,7 @@ public class EcpClient {
 	public ArrayList<Channel> getChannels(){	
 		HttpClient client = new DefaultHttpClient();
 		String uri = this.getBaseUrl() + "/query/apps";
-		Log.v(TAG, uri);
+		Log.d(LOG_TAG, uri);
 		HttpUriRequest request = new HttpGet(uri);
 
 		String responseText = null;
@@ -125,7 +110,7 @@ public class EcpClient {
 			xr.parse(new InputSource( inputStream ));
 
 		} catch (Exception e) {
-			System.out.println("XML Pasing Excpetion = " + e);
+			Log.e(LOG_TAG, "XML Pasing Excpetion = ", e);
 		}
 
 		/** Get result from MyXMLHandler SitlesList Object */
