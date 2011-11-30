@@ -3,7 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/app_background"
-    android:gravity="center|center_horizontal"
+    android:gravity="center_horizontal"
     android:orientation="vertical" > 	
  	<LinearLayout
  	    android:id="@+id/linearLayout3"
@@ -24,16 +24,18 @@
             android:layout_width="95dp"
             android:layout_height="wrap_content"
             android:src="@drawable/button_home" />
- 
+        
     </LinearLayout>
-
+
  	<LinearLayout
  	    android:id="@+id/linearLayout4"
  	    android:layout_width="200dp"
  	    android:layout_height="200dp"
  	    android:background="@drawable/d_pad_bg"
  	    android:gravity="center_vertical"
- 	    android:orientation="vertical" >
+ 	    android:orientation="vertical"
+ 	    android:layout_marginTop="10dp"
+ 	    android:layout_marginBottom="10dp" >
 
  		<LinearLayout
  		    android:id="@+id/linearLayout5"
@@ -50,7 +52,7 @@
  			    android:scaleType="fitCenter" />
 
  		</LinearLayout>
-
+ 		
  		<LinearLayout
  		    android:id="@+id/linearLayout6"
  		    android:layout_width="match_parent"
@@ -78,7 +80,7 @@
  			    android:src="@drawable/button_right" />
 
  		</LinearLayout>
-
+
  		<LinearLayout
  		    android:id="@+id/linearLayout7"
  		    android:layout_width="match_parent"
@@ -141,11 +143,25 @@
             android:text="@string/button_info" />
 
     </LinearLayout>
-
-    <Button
-        android:id="@+id/button_channels"
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:id="@+id/linearLayout8"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/channels" />
+        android:gravity="bottom" >
+
+        <Button
+            android:id="@+id/button_channels"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/channels" />
+
+        <Button
+            android:id="@+id/button_input_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_input_text" />
+
+    </LinearLayout>
 
 </LinearLayout>

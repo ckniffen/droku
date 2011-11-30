@@ -15,5 +15,8 @@
     <string name="button_back">Back</string>
     <string name="button_home">Home</string>
     <string name="channels">Channels</string>
+    <string name="button_input_text">Enter Text</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_enter">Enter</string>
 
 </resources>
