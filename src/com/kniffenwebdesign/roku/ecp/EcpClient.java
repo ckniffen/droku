@@ -56,12 +56,12 @@ public class EcpClient {
 	}
 
 	public void sendCharacter(char character) {
-		executeAction("keydown/Lit_" + character);
+		executeAction("keypress/Lit_" + character);
 	}
 	
 
 	public void sendString(String string) {
-		for (int i = 0; i < string.length() - 1; i++) {
+		for (int i = 0; i < string.length(); i++) {
 			sendCharacter(string.charAt(i));
 		}
 	}

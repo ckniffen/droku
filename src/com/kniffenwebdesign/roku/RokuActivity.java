@@ -33,6 +33,7 @@ public class RokuActivity extends Activity {
         final ImageView buttonHome = (ImageView) findViewById(R.id.button_home);
         
         final Button buttonChannels = (Button) findViewById(R.id.button_channels);  
+        final Button buttonTextInput = (Button) findViewById(R.id.button_text_input);  
         
         buttonBack.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -97,6 +98,13 @@ public class RokuActivity extends Activity {
         buttonChannels.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             	Intent i = new Intent(RokuActivity.this, ChannelsActivity.class);
+            	startActivity(i);
+            }
+        });
+        
+        buttonTextInput.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            	Intent i = new Intent(RokuActivity.this, TextInputActivity.class);
             	startActivity(i);
             }
        });

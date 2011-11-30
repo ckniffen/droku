@@ -155,9 +155,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/channels" />
-
+
         <Button
-            android:id="@+id/button_input_text"
+            android:id="@+id/button_text_input"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/button_input_text" />
