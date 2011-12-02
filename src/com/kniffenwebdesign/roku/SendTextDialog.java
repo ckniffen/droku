@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 public class SendTextDialog extends AlertDialog{
@@ -13,7 +14,6 @@ public class SendTextDialog extends AlertDialog{
 		
 	public SendTextDialog(Context context){
 		super(context);
-		
 	}
 	
 	public EditText getEditText(){
@@ -22,17 +22,21 @@ public class SendTextDialog extends AlertDialog{
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
-		//setContentView(R.layout.text_input2);
 		input = new EditText(this.getContext());
 		setView(input);
-		SendTextDialogClickListener clickListener =  new SendTextDialogClickListener();
+
+		setCancelable(true);
+		setCanceledOnTouchOutside(true);
+		
+		setOnShowListener(new DialogOnShowListener());
+		DialogOnClickListener clickListener =  new DialogOnClickListener();
 		setButton(this.getContext().getText(R.string.button_ok), clickListener);
 		setButton2(this.getContext().getText(R.string.button_cancel), clickListener);
 		
 		super.onCreate(savedInstanceState);
 	}
 	
-	class SendTextDialogClickListener implements DialogInterface.OnClickListener {
+	class DialogOnClickListener implements DialogInterface.OnClickListener {
         public void onClick(DialogInterface dialog, int which) {
         	SendTextDialog sendTextDialog = (SendTextDialog) dialog;
         	switch(which){
@@ -45,4 +49,11 @@ public class SendTextDialog extends AlertDialog{
         	}
         }
     }
+	
+	class DialogOnShowListener implements DialogInterface.OnShowListener {
+		public void onShow(DialogInterface dialog) {
+	        InputMethodManager imm = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+	        imm.showSoftInput(input, InputMethodManager.SHOW_IMPLICIT);
+	    }
+	}
 }
