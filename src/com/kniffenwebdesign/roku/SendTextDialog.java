@@ -29,6 +29,7 @@ public class SendTextDialog extends AlertDialog{
 		setCanceledOnTouchOutside(true);
 		
 		setOnShowListener(new DialogOnShowListener());
+		
 		DialogOnClickListener clickListener =  new DialogOnClickListener();
 		setButton(this.getContext().getText(R.string.button_ok), clickListener);
 		setButton2(this.getContext().getText(R.string.button_cancel), clickListener);
