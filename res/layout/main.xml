@@ -143,24 +143,33 @@
             android:text="@string/button_info" />
 
     </LinearLayout>
-
+
     <LinearLayout
         android:id="@+id/linearLayout8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="bottom" >
-
+
         <Button
             android:id="@+id/button_channels"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="0.24"
             android:text="@string/channels" />
-
+
         <Button
             android:id="@+id/button_text_input"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="0.19"
             android:text="@string/button_input_text" />
+
+        <Button
+            android:id="@+id/button_search"
+            android:layout_width="49dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.39"
+            android:text="@string/button_search" />
 
     </LinearLayout>
 

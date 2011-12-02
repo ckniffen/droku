@@ -1,6 +1,7 @@
 package com.kniffenwebdesign.roku;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -33,7 +34,9 @@ public class RokuActivity extends Activity {
         final ImageView buttonHome = (ImageView) findViewById(R.id.button_home);
         
         final Button buttonChannels = (Button) findViewById(R.id.button_channels);  
-        final Button buttonTextInput = (Button) findViewById(R.id.button_text_input);  
+        final Button buttonTextInput = (Button) findViewById(R.id.button_text_input);
+        final Button buttonSearch  = (Button) findViewById(R.id.button_search);
+        
         
         buttonBack.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -91,7 +94,7 @@ public class RokuActivity extends Activity {
         
         buttonForward.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	 Key.FORWARD.keyPress();
+            	Key.FORWARD.keyPress();
             }
         });
         
@@ -104,9 +107,15 @@ public class RokuActivity extends Activity {
         
         buttonTextInput.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	Intent i = new Intent(RokuActivity.this, TextInputActivity.class);
-            	startActivity(i);
+            	SendTextDialog dialog = new SendTextDialog(RokuActivity.this);
+            	dialog.show();
             }
-       });
+        });
+        
+        buttonSearch.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            	Key.SEARCH.keyPress();
+            }
+        });
     }  
 }
