@@ -33,10 +33,12 @@ public class RokuActivity extends Activity {
         final ImageView buttonBack = (ImageView) findViewById(R.id.button_back);
         final ImageView buttonHome = (ImageView) findViewById(R.id.button_home);
         
+        final ImageView buttonReplay = (ImageView) findViewById(R.id.button_replay);
+        final ImageView buttonInfo = (ImageView) findViewById(R.id.button_info);
+        
         final Button buttonChannels = (Button) findViewById(R.id.button_channels);  
         final Button buttonTextInput = (Button) findViewById(R.id.button_text_input);
-        final Button buttonSearch  = (Button) findViewById(R.id.button_search);
-        
+        final Button buttonSearch = (Button) findViewById(R.id.button_search);
         
         buttonBack.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -95,6 +97,18 @@ public class RokuActivity extends Activity {
         buttonForward.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             	Key.FORWARD.keyPress();
+            }
+        });
+        
+        buttonReplay.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            	Key.REPLAY.keyPress();
+            }
+        });
+        
+        buttonInfo.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            	Key.INFO.keyPress();
             }
         });
         

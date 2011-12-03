@@ -6,6 +6,7 @@ public enum Key {
 	SELECT ("Select"), // On Remote is labeled OK
 	ENTER ("Enter"),
 	INFO ("Info"),
+	REPLAY ("InstantReplay"),
 	SEARCH ("Search"),
 	
 	REVERSE ("Rev"), 
