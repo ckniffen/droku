@@ -103,7 +103,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linearLayout2"
+            android:id="@+id/reverse_play_forward_block"
             android:layout_width="wrap_content"
             android:layout_height="58dp" >
 
@@ -127,7 +127,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linearLayout1"
+            android:id="@+id/replay_info_block"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center" >

@@ -51,17 +51,15 @@ public final class R {
         public static final int button_up=0x7f060009;
         public static final int channel_icon=0x7f060000;
         public static final int directional_pad=0x7f060007;
-        public static final int footer_buttons=0x7f06001f;
-        public static final int linearLayout1=0x7f060014;
-        public static final int linearLayout2=0x7f060010;
+        public static final int footer_buttons=0x7f06001d;
         public static final int linearLayout3=0x7f060004;
         public static final int linearLayout30=0x7f060003;
         public static final int linearLayout5=0x7f060008;
         public static final int linearLayout6=0x7f06000a;
         public static final int linearLayout7=0x7f06000e;
         public static final int linearLayout8=0x7f060017;
-        public static final int replay_info_block=0x7f06001e;
-        public static final int reverse_play_forward_block=0x7f06001d;
+        public static final int replay_info_block=0x7f060014;
+        public static final int reverse_play_forward_block=0x7f060010;
     }
     public static final class layout {
         public static final int channel_list_item=0x7f030000;
