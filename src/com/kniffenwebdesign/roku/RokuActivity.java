@@ -26,9 +26,9 @@ public class RokuActivity extends Activity {
         final ImageView buttonRight = (ImageView) findViewById(R.id.button_right);
         final ImageView buttonSelect = (ImageView) findViewById(R.id.button_select);
         
-        final Button buttonReverse = (Button) findViewById(R.id.button_reverse);
-        final Button buttonPlay = (Button) findViewById(R.id.button_play);
-        final Button buttonForward = (Button) findViewById(R.id.button_forward);
+        final ImageView buttonReverse = (ImageView) findViewById(R.id.button_reverse);
+        final ImageView buttonPlay = (ImageView) findViewById(R.id.button_play);
+        final ImageView buttonForward = (ImageView) findViewById(R.id.button_forward);
         
         final ImageView buttonBack = (ImageView) findViewById(R.id.button_back);
         final ImageView buttonHome = (ImageView) findViewById(R.id.button_home);

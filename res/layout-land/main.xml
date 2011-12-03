@@ -113,23 +113,24 @@
                 android:layout_height="58dp"
                 android:gravity="center" >
 
-                <Button
-                    android:id="@+id/button_reverse"
-                    android:layout_width="58dp"
-                    android:layout_height="58dp"
-                    android:text="@string/button_reverse" />
+                <ImageView
+	                android:id="@+id/button_reverse"
+	                android:layout_width="58dp"
+	                android:layout_height="58dp"
+	                android:src="@drawable/button_rewind" />
 
-                <Button
-                    android:id="@+id/button_play"
-                    android:layout_width="58dp"
-                    android:layout_height="58dp"
-                    android:text="@string/button_play" />
+				<ImageView
+	                android:id="@+id/button_play"
+	                android:layout_width="58dp"
+	                android:layout_height="58dp"
+	                android:src="@drawable/button_play" />
 
-                <Button
-                    android:id="@+id/button_forward"
-                    android:layout_width="58dp"
-                    android:layout_height="58dp"
-                    android:text="@string/button_forward" />
+	            <ImageView
+	                android:id="@+id/button_forward"
+	                android:layout_width="58dp"
+	                android:layout_height="58dp"
+	                android:src="@drawable/button_forward" />
+                
             </LinearLayout>
 
             <LinearLayout
