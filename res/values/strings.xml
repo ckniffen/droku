@@ -1,27 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Roku</string>
-    <string name="button_left">←</string>
-    <string name="button_right">→</string>
-    <string name="button_top">↑</string>
-    <string name="button_bottom">↓</string>
-    <string name="button_ok">ok</string>
-    <string name="empty"></string>
-    <string name="button_reverse">↞</string>
-    <string name="button_play">⇨</string>
-    <string name="button_forward">↠</string>
-    <string name="button_info">Info</string>
-    <string name="button_replay">Replay</string>
-    <string name="button_back">Back</string>
-    <string name="button_home">Home</string>
-    <string name="channels">Channels</string>
+    <string name="app_name">Roku Remote</string>
+    
+    <!-- Buttons -->
+    <string name="button_channels">Channels</string>
     <string name="button_input_text">Enter Text</string>
-    <string name="button_cancel">Cancel</string>
-    <string name="button_enter">Enter</string>
     <string name="button_search">Search</string>
-    <string name="menu_settings">Settings</string>
-    <string name="dialog_title_ip_address_preference">IP Address</string>
-    <string name="summary_ip_address_preference">The ip adress for your roku.</string>
-    <string name="title_ip_address_preference">IP Address</string>
+    <string name="button_ok">Ok</string>
+    <string name="button_cancel">Cancel</string>
+    
+    <!-- Activity Titles -->
+    <string name="title_channel_activity">Channels</string>
+    <string name="title_preferences_activity">Preferences</string>
 
+    <!-- Menus -->
+    <string name="menu_settings">Settings</string>
+    
+    <!-- Preference Pages -->
+    <string name="title_ip_address_preference">IP Address</string>
+    <string name="summary_ip_address_preference">The IP address for your Roku.</string>    
+    <string name="dialog_title_ip_address_preference">IP Address</string>
+        
 </resources>

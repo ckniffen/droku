@@ -20,11 +20,11 @@
         </activity>
         <activity 
             android:name=".ChannelsActivity" 
-            android:label="@string/channels">   
+            android:label="@string/title_channel_activity">   
         </activity>
         <activity 
             android:name=".PreferencesActivity" 
-            android:label="@string/channels">   
+            android:label="@string/title_preferences_activity">   
         </activity>
     </application>
 
