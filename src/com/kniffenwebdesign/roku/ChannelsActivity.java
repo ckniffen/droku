@@ -6,21 +6,29 @@ import com.kniffenwebdesign.roku.ecp.Channel;
 import com.kniffenwebdesign.roku.ecp.EcpClient;
 
 import android.app.Activity;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.ListView;
 
-public class ChannelsActivity extends Activity{
+public class ChannelsActivity extends Activity {
 	private ListView lv1;
-	
+
 	@Override
-	public void onCreate(Bundle icicle)
-	{
+	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
 		setContentView(R.layout.channels);
-		EcpClient.getInstance().setIpAddress("192.168.1.109");
-		ArrayList<Channel> channels = EcpClient.getInstance().getChannels();
-		lv1 = (ListView)findViewById(R.id.ListView01);
-		// By using setAdpater method in listview we an add string array in list.
-		lv1.setAdapter(new ChannelAdapter(this, R.layout.channel_list_item, channels));
+		
+		new LoadChannelsTask().execute("");
+	}
+
+	private class LoadChannelsTask extends AsyncTask<String, Integer, ArrayList<Channel>> {
+		protected ArrayList<Channel> doInBackground(String... voids) {
+			ArrayList<Channel> channels = EcpClient.getInstance().getChannels();
+			return channels;
+		}
+		protected void onPostExecute(ArrayList<Channel> channels){
+			lv1 = (ListView) ChannelsActivity.this.findViewById(R.id.ListView01);
+			lv1.setAdapter(new ChannelAdapter(ChannelsActivity.this, R.layout.channel_list_item, channels));
+		}
 	}
 }
