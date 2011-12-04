@@ -8,10 +8,10 @@ import com.kniffenwebdesign.roku.ecp.EcpClient;
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.widget.ListView;
+import android.widget.GridView;
 
 public class ChannelsActivity extends Activity {
-	private ListView lv1;
+	private GridView lv1;
 
 	@Override
 	public void onCreate(Bundle icicle) {
@@ -30,7 +30,7 @@ public class ChannelsActivity extends Activity {
 		
 		@Override
 		protected void onPostExecute(ArrayList<Channel> channels){
-			lv1 = (ListView) ChannelsActivity.this.findViewById(R.id.ListView01);
+			lv1 = (GridView) ChannelsActivity.this.findViewById(R.id.ListView01);
 			lv1.setAdapter(new ChannelAdapter(ChannelsActivity.this, R.layout.channel_list_item, channels));
 		}
 	}
