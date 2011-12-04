@@ -30,43 +30,48 @@ public final class R {
         public static final int channel_fpo=0x7f020010;
         public static final int d_pad_bg=0x7f020011;
         public static final int ic_launcher=0x7f020012;
+        public static final int menu_settings_icon=0x7f020013;
     }
     public static final class id {
-        public static final int LinearLayout01=0x7f060001;
-        public static final int ListView01=0x7f060002;
-        public static final int back_home_block=0x7f06001c;
-        public static final int button_back=0x7f060005;
-        public static final int button_block=0x7f06001b;
-        public static final int button_channels=0x7f060018;
-        public static final int button_down=0x7f06000f;
-        public static final int button_forward=0x7f060013;
-        public static final int button_home=0x7f060006;
-        public static final int button_info=0x7f060016;
-        public static final int button_left=0x7f06000b;
-        public static final int button_play=0x7f060012;
-        public static final int button_replay=0x7f060015;
-        public static final int button_reverse=0x7f060011;
-        public static final int button_right=0x7f06000d;
-        public static final int button_search=0x7f06001a;
-        public static final int button_select=0x7f06000c;
-        public static final int button_text_input=0x7f060019;
-        public static final int button_up=0x7f060009;
-        public static final int channel_icon=0x7f060000;
-        public static final int directional_pad=0x7f060007;
-        public static final int footer_block=0x7f060017;
-        public static final int footer_buttons=0x7f06001d;
-        public static final int linearLayout3=0x7f060004;
-        public static final int linearLayout30=0x7f060003;
-        public static final int linearLayout5=0x7f060008;
-        public static final int linearLayout6=0x7f06000a;
-        public static final int linearLayout7=0x7f06000e;
-        public static final int replay_info_block=0x7f060014;
-        public static final int reverse_play_forward_block=0x7f060010;
+        public static final int LinearLayout01=0x7f070001;
+        public static final int ListView01=0x7f070002;
+        public static final int back_home_block=0x7f07001c;
+        public static final int button_back=0x7f070005;
+        public static final int button_block=0x7f07001b;
+        public static final int button_channels=0x7f070018;
+        public static final int button_down=0x7f07000f;
+        public static final int button_forward=0x7f070013;
+        public static final int button_home=0x7f070006;
+        public static final int button_info=0x7f070016;
+        public static final int button_left=0x7f07000b;
+        public static final int button_play=0x7f070012;
+        public static final int button_replay=0x7f070015;
+        public static final int button_reverse=0x7f070011;
+        public static final int button_right=0x7f07000d;
+        public static final int button_search=0x7f07001a;
+        public static final int button_select=0x7f07000c;
+        public static final int button_text_input=0x7f070019;
+        public static final int button_up=0x7f070009;
+        public static final int channel_icon=0x7f070000;
+        public static final int directional_pad=0x7f070007;
+        public static final int footer_block=0x7f070017;
+        public static final int footer_buttons=0x7f07001d;
+        public static final int linearLayout3=0x7f070004;
+        public static final int linearLayout30=0x7f070003;
+        public static final int linearLayout5=0x7f070008;
+        public static final int linearLayout6=0x7f07000a;
+        public static final int linearLayout7=0x7f07000e;
+        public static final int menu_setting=0x7f07001e;
+        public static final int replay_info_block=0x7f070014;
+        public static final int reverse_play_forward_block=0x7f070010;
     }
     public static final class layout {
         public static final int channel_list_item=0x7f030000;
         public static final int channels=0x7f030001;
         public static final int main=0x7f030002;
+    }
+    public static final class menu {
+        public static final int main_menu=0x7f060000;
     }
     public static final class string {
         public static final int app_name=0x7f040000;
@@ -88,6 +93,7 @@ public final class R {
         public static final int button_top=0x7f040003;
         public static final int channels=0x7f04000e;
         public static final int empty=0x7f040006;
+        public static final int menu_settings=0x7f040013;
     }
     public static final class style {
         public static final int app_theme=0x7f050000;

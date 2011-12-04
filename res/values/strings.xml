@@ -19,5 +19,6 @@
     <string name="button_cancel">Cancel</string>
     <string name="button_enter">Enter</string>
     <string name="button_search">Search</string>
+    <string name="menu_settings">Settings</string>
 
 </resources>
