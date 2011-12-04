@@ -20,5 +20,8 @@
     <string name="button_enter">Enter</string>
     <string name="button_search">Search</string>
     <string name="menu_settings">Settings</string>
+    <string name="dialog_title_ip_address_preference">IP Address</string>
+    <string name="summary_ip_address_preference">The ip adress for your roku.</string>
+    <string name="title_ip_address_preference">IP Address</string>
 
 </resources>

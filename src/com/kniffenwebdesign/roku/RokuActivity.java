@@ -1,11 +1,11 @@
 package com.kniffenwebdesign.roku;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -14,13 +14,17 @@ import com.kniffenwebdesign.roku.ecp.*;
 
 public class RokuActivity extends Activity {
 	private static final String LOG_TAG = "RokuActivity";
+	private ApplicationPreferences preferences;
+	
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        preferences = new ApplicationPreferences(getBaseContext());
+        
         setContentView(R.layout.main);
         
-        EcpClient.getInstance().setIpAddress("192.168.1.109");
+        EcpClient.getInstance().setIpAddress(preferences.getIpAddress());
         
         final ImageView buttonUp = (ImageView) findViewById(R.id.button_up);
         final ImageView buttonDown = (ImageView) findViewById(R.id.button_down);
@@ -140,5 +144,18 @@ public class RokuActivity extends Activity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_menu, menu);
         return true;
+    }
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+        case R.id.menu_setting:
+        	Intent i = new Intent(RokuActivity.this, PreferencesActivity.class);
+        	startActivity(i);
+            return true;
+        default:
+            return super.onOptionsItemSelected(item);
+        }
     }
 }

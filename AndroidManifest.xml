@@ -22,6 +22,10 @@
             android:name=".ChannelsActivity" 
             android:label="@string/channels">   
         </activity>
+        <activity 
+            android:name=".PreferencesActivity" 
+            android:label="@string/channels">   
+        </activity>
     </application>
 
 </manifest>
