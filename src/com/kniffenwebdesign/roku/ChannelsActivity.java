@@ -22,10 +22,13 @@ public class ChannelsActivity extends Activity {
 	}
 
 	private class LoadChannelsTask extends AsyncTask<String, Integer, ArrayList<Channel>> {
+		@Override
 		protected ArrayList<Channel> doInBackground(String... voids) {
 			ArrayList<Channel> channels = EcpClient.getInstance().getChannels();
 			return channels;
 		}
+		
+		@Override
 		protected void onPostExecute(ArrayList<Channel> channels){
 			lv1 = (ListView) ChannelsActivity.this.findViewById(R.id.ListView01);
 			lv1.setAdapter(new ChannelAdapter(ChannelsActivity.this, R.layout.channel_list_item, channels));
