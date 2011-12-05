@@ -11,7 +11,7 @@ import android.os.Bundle;
 import android.widget.GridView;
 
 public class ChannelsActivity extends Activity {
-	private GridView lv1;
+	private GridView gridViewChannels;
 
 	@Override
 	public void onCreate(Bundle icicle) {
@@ -30,8 +30,8 @@ public class ChannelsActivity extends Activity {
 		
 		@Override
 		protected void onPostExecute(ArrayList<Channel> channels){
-			lv1 = (GridView) ChannelsActivity.this.findViewById(R.id.ListView01);
-			lv1.setAdapter(new ChannelAdapter(ChannelsActivity.this, R.layout.channel_list_item, channels));
+			gridViewChannels = (GridView) ChannelsActivity.this.findViewById(R.id.gridview_channels);
+			gridViewChannels.setAdapter(new ChannelAdapter(ChannelsActivity.this, R.layout.channel_list_item, channels));
 		}
 	}
 }

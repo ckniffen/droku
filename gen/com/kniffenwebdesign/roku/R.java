@@ -34,7 +34,6 @@ public final class R {
     }
     public static final class id {
         public static final int LinearLayout01=0x7f080001;
-        public static final int ListView01=0x7f080002;
         public static final int back_home_block=0x7f08001c;
         public static final int button_back=0x7f080005;
         public static final int button_block=0x7f08001b;
@@ -56,6 +55,7 @@ public final class R {
         public static final int directional_pad=0x7f080007;
         public static final int footer_block=0x7f080017;
         public static final int footer_buttons=0x7f08001d;
+        public static final int gridview_channels=0x7f080002;
         public static final int linearLayout3=0x7f080004;
         public static final int linearLayout30=0x7f080003;
         public static final int linearLayout5=0x7f080008;
