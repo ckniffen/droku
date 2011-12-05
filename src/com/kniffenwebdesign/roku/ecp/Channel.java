@@ -1,10 +1,15 @@
 package com.kniffenwebdesign.roku.ecp;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+
+import android.graphics.Bitmap;
+
 public class Channel {
 	Integer id = null;
 	String version = null;
 	String name = null;
-	
+	Bitmap iconBitmap = null;
 	
 	public Channel() {
 	
@@ -29,6 +34,20 @@ public class Channel {
 		return EcpClient.getInstance().getChannelIconUrl(this.id);
 	}
 
+	public Bitmap getIconBitmap(){
+		Bitmap bitmap = null;
+		try {
+			bitmap = HttpUtil.drawableFromUrl(getImageSrc());
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return bitmap;
+	}
+	
 	public String getVersion() {
 		return version;
 	}

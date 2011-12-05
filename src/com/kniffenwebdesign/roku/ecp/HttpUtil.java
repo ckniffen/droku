@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 import org.apache.http.HeaderElement;
 import org.apache.http.HttpEntity;
@@ -17,6 +19,8 @@ import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.protocol.HTTP;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.ParseException;
 import android.util.Log;
 
@@ -124,5 +128,17 @@ public class HttpUtil {
 			}
 		}
 		return response_text;
+	}
+	
+	public static Bitmap drawableFromUrl(String url) throws java.net.MalformedURLException, java.io.IOException {
+		Bitmap bitmap;
+		
+		HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+		
+		connection.connect();
+		InputStream input = connection.getInputStream();
+		
+		bitmap = BitmapFactory.decodeStream(input);
+		return bitmap;
 	}
 }
