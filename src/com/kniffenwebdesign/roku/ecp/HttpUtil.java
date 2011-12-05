@@ -30,8 +30,6 @@ public class HttpUtil {
 	public static String request(String url, String method){
 		HttpClient client = new DefaultHttpClient();
 		HttpUriRequest request = null;
-
-		Log.d(LOG_TAG, url);
 	
 		if(method.equals("GET")){
 			request = new HttpGet(url);

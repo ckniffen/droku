@@ -1,15 +1,13 @@
 package com.kniffenwebdesign.roku.ecp;
 
-import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
-
-import org.xml.sax.InputSource;
-import org.xml.sax.XMLReader;
-
 import android.util.Log;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 public class EcpClient {
 	private static final String LOG_TAG = "EcpClient";
@@ -40,6 +38,8 @@ public class EcpClient {
 	}
 	public String executeAction(String action) {
 		String url = this.getBaseUrl() + "/" + action;
+		Log.d(LOG_TAG, url);
+
 		return HttpUtil.request(url, "POST");
 	}
 
@@ -76,26 +76,29 @@ public class EcpClient {
 	
 	public ArrayList<Channel> getChannels(){	
 		String url = this.getBaseUrl() + "/query/apps";
+		Log.d(LOG_TAG, url);
+
 		String responseText = HttpUtil.request(url, "GET");
 		
-		try {
-			/** Handling XML */
-			SAXParserFactory spf = SAXParserFactory.newInstance();
-			SAXParser sp = spf.newSAXParser();
-			XMLReader xr = sp.getXMLReader();
+		Document doc = Jsoup.parse(responseText);
+		Elements apps = doc.select("app");
+		
+		ArrayList<Channel> channels = new ArrayList<Channel>();
+		for (Element app : apps) {
+			Channel channel = new Channel();
 			
-			/** Create handler to handle XML Tags ( extends DefaultHandler ) */
-			ChannelParser channelXmlHandler = new ChannelParser();
+			String idString = app.attr("id");
+			Integer id = Integer.parseInt(idString);
+			String version = app.attr("version");
+			String name = app.text();
 			
-			ByteArrayInputStream inputStream = new ByteArrayInputStream(responseText.getBytes());
-			
-			xr.setContentHandler(channelXmlHandler);
-			xr.parse(new InputSource( inputStream ));
-		} catch (Exception e) {
-			Log.e(LOG_TAG, "XML Pasing Excpetion", e);
+			channel.setId(id);
+			channel.setVersion(version);
+			channel.setName(name);
+			channel.loadBitmap();
+			channels.add(channel);
 		}
 
-		/** Get result from MyXMLHandler SitlesList Object */
-		return ChannelParser.channelList;
+		return channels;
 	}
 }
