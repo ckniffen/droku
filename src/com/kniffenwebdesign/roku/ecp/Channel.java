@@ -21,16 +21,6 @@ public class Channel {
 
 	public void setId(Integer id) {
 		this.id = id;
-		
-		try {
-			iconBitmap = HttpUtil.drawableFromUrl(getImageSrc());
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 
 	public String getImageSrc() {
@@ -55,5 +45,17 @@ public class Channel {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public void loadBitmap(){
+		try {
+			iconBitmap = HttpUtil.drawableFromUrl(getImageSrc());
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

@@ -11,6 +11,7 @@ public class ChannelParser extends DefaultHandler {
 	Boolean currentElement = false;
 	String currentValue = null;
 	Channel currentChannel = null;
+	
 	public static ArrayList<Channel> channelList = null;
 
 	public static ArrayList<Channel> getSitesList() {
@@ -57,6 +58,7 @@ public class ChannelParser extends DefaultHandler {
 		/** set value */
 		if (localName.equals("app")) {
 			currentChannel.setName(currentValue);
+			currentChannel.loadBitmap();
 			channelList.add(currentChannel);
 		}
 	}
@@ -73,5 +75,4 @@ public class ChannelParser extends DefaultHandler {
 		}
 
 	}
-
 }
