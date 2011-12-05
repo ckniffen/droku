@@ -3,18 +3,18 @@
 android:layout_width="fill_parent"
 android:layout_height="fill_parent"
 xmlns:android="http://schemas.android.com/apk/res/android">
-
-	<ProgressBar
+
+    <ProgressBar
         android:id="@+id/progress_channels"
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true" />
-        
+
 	<GridView
 	    android:id="@+id/gridview_channels"
 	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
-	    android:numColumns="2" />
+	    android:numColumns="3" />
 	
 </RelativeLayout>
