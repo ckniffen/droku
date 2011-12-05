@@ -14,13 +14,6 @@ public class Channel {
 	public Channel() {
 	
 	}
-	
-	public Channel(Integer id, String version, String name) {
-		super();
-		this.id = id;
-		this.version = version;
-		this.name = name;
-	}
 
 	public Integer getId() {
 		return id;
@@ -28,16 +21,9 @@ public class Channel {
 
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	public String getImageSrc() {
-		return EcpClient.getInstance().getChannelIconUrl(this.id);
-	}
-
-	public Bitmap getIconBitmap(){
-		Bitmap bitmap = null;
+		
 		try {
-			bitmap = HttpUtil.drawableFromUrl(getImageSrc());
+			iconBitmap = HttpUtil.drawableFromUrl(getImageSrc());
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -45,7 +31,14 @@ public class Channel {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return bitmap;
+	}
+
+	public String getImageSrc() {
+		return EcpClient.getInstance().getChannelIconUrl(this.id);
+	}
+
+	public Bitmap getIconBitmap(){
+		return iconBitmap;
 	}
 	
 	public String getVersion() {
