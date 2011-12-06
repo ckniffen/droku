@@ -37,7 +37,7 @@ public class HttpUtil {
 			request = new HttpPost(url);
 		}
 		
-		String responseText = null;
+		String responseText = "";
 		try {
 			HttpResponse response = client.execute(request);
 			responseText = HttpUtil.getResponseBody(response);
