@@ -48,73 +48,73 @@ public class RokuActivity extends Activity {
         
         buttonBack.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	 Key.BACK.keyPress();
+            	 new EcpAsyncTask().execute(Key.BACK);
             }
         });
         
         buttonHome.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	 Key.HOME.keyPress();
+            	new EcpAsyncTask().execute(Key.HOME);
             }
         });
         
         buttonLeft.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	 Key.LEFT.keyPress();
+            	new EcpAsyncTask().execute(Key.LEFT);
             }
         });
         
         buttonRight.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	 Key.RIGHT.keyPress();
+            	new EcpAsyncTask().execute(Key.RIGHT);
             }
         });
         
         buttonUp.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	 Key.UP.keyPress();
+            	new EcpAsyncTask().execute(Key.UP);
             }
         });
         
         buttonDown.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	 Key.DOWN.keyPress();
+            	 new EcpAsyncTask().execute(Key.DOWN);
             }
         });
         
         buttonSelect.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	 Key.SELECT.keyPress();
+            	 new EcpAsyncTask().execute(Key.SELECT);
             }
         });
         
         buttonReverse.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	 Key.REVERSE.keyPress();
+            	 new EcpAsyncTask().execute(Key.REVERSE);
             }
         });
         
         buttonPlay.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	 Key.PLAY.keyPress();
+            	 new EcpAsyncTask().execute(Key.PLAY);
             }
         });
         
         buttonForward.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	Key.FORWARD.keyPress();
+            	 new EcpAsyncTask().execute(Key.FORWARD);
             }
         });
         
         buttonReplay.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	Key.REPLAY.keyPress();
+            	 new EcpAsyncTask().execute(Key.REPLAY);
             }
         });
         
         buttonInfo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	Key.INFO.keyPress();
+            	new EcpAsyncTask().execute(Key.INFO);
             }
         });
         
@@ -134,7 +134,7 @@ public class RokuActivity extends Activity {
         
         buttonSearch.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	Key.SEARCH.keyPress();
+            	 new EcpAsyncTask().execute(Key.SEARCH);
             }
         });
     }
@@ -148,14 +148,13 @@ public class RokuActivity extends Activity {
     
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
         switch (item.getItemId()) {
-        case R.id.menu_setting:
-        	Intent i = new Intent(RokuActivity.this, PreferencesActivity.class);
-        	startActivity(i);
-            return true;
-        default:
-            return super.onOptionsItemSelected(item);
+	        case R.id.menu_setting:
+	        	Intent i = new Intent(RokuActivity.this, PreferencesActivity.class);
+	        	startActivity(i);
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
         }
     }
 }
