@@ -7,7 +7,7 @@ public class EcpAsyncTask extends AsyncTask<Key, Integer, Boolean> {
 	@Override
 	protected Boolean doInBackground(Key... keys) {
 		for (Key key : keys) {
-			key.keyUp();
+			key.keyPress();
 		}
 		return true;
 	}
