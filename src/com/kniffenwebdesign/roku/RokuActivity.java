@@ -16,35 +16,55 @@ public class RokuActivity extends Activity {
 	private static final String LOG_TAG = "RokuActivity";
 	private ApplicationPreferences preferences;
 	
+	ImageView buttonUp;
+	ImageView buttonDown;
+	ImageView buttonLeft;
+	ImageView buttonRight;
+	ImageView buttonSelect;
+	
+	ImageView buttonReverse;
+	ImageView buttonPlay;
+	ImageView buttonForward;
+	
+	ImageView buttonBack;
+	ImageView buttonHome;
+	
+	ImageView buttonReplay;
+	ImageView buttonInfo;
+	
+	Button buttonChannels;
+	Button buttonTextInput;
+	Button buttonSearch;
+	
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        preferences = new ApplicationPreferences(getBaseContext());
+        preferences = new ApplicationPreferences(getApplicationContext());
         
         setContentView(R.layout.main);
         
         EcpClient.getInstance().setIpAddress(preferences.getIpAddress());
         
-        final ImageView buttonUp = (ImageView) findViewById(R.id.button_up);
-        final ImageView buttonDown = (ImageView) findViewById(R.id.button_down);
-        final ImageView buttonLeft = (ImageView) findViewById(R.id.button_left);
-        final ImageView buttonRight = (ImageView) findViewById(R.id.button_right);
-        final ImageView buttonSelect = (ImageView) findViewById(R.id.button_select);
+        buttonUp = (ImageView) findViewById(R.id.button_up);
+        buttonDown = (ImageView) findViewById(R.id.button_down);
+        buttonLeft = (ImageView) findViewById(R.id.button_left);
+        buttonRight = (ImageView) findViewById(R.id.button_right);
+        buttonSelect = (ImageView) findViewById(R.id.button_select);
         
-        final ImageView buttonReverse = (ImageView) findViewById(R.id.button_reverse);
-        final ImageView buttonPlay = (ImageView) findViewById(R.id.button_play);
-        final ImageView buttonForward = (ImageView) findViewById(R.id.button_forward);
+        buttonReverse = (ImageView) findViewById(R.id.button_reverse);
+        buttonPlay = (ImageView) findViewById(R.id.button_play);
+        buttonForward = (ImageView) findViewById(R.id.button_forward);
         
-        final ImageView buttonBack = (ImageView) findViewById(R.id.button_back);
-        final ImageView buttonHome = (ImageView) findViewById(R.id.button_home);
+        buttonBack = (ImageView) findViewById(R.id.button_back);
+        buttonHome = (ImageView) findViewById(R.id.button_home);
         
-        final ImageView buttonReplay = (ImageView) findViewById(R.id.button_replay);
-        final ImageView buttonInfo = (ImageView) findViewById(R.id.button_info);
+        buttonReplay = (ImageView) findViewById(R.id.button_replay);
+        buttonInfo = (ImageView) findViewById(R.id.button_info);
         
-        final Button buttonChannels = (Button) findViewById(R.id.button_channels);  
-        final Button buttonTextInput = (Button) findViewById(R.id.button_text_input);
-        final Button buttonSearch = (Button) findViewById(R.id.button_search);
+        buttonChannels = (Button) findViewById(R.id.button_channels);  
+        buttonTextInput = (Button) findViewById(R.id.button_text_input);
+        buttonSearch = (Button) findViewById(R.id.button_search);
         
         buttonBack.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
