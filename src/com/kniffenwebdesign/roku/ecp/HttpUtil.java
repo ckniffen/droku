@@ -22,10 +22,8 @@ import org.apache.http.protocol.HTTP;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.ParseException;
-import android.util.Log;
 
 public class HttpUtil {
-	private static final String LOG_TAG = "HttpUtil";
 
 	public static String request(String url, String method){
 		HttpClient client = new DefaultHttpClient();

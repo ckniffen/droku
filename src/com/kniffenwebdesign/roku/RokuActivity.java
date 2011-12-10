@@ -3,11 +3,9 @@ package com.kniffenwebdesign.roku;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.SyncStateContract.Constants;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -15,11 +13,7 @@ import android.widget.ImageView;
 import com.kniffenwebdesign.roku.ecp.*;
 
 public class RokuActivity extends Activity {
-	private static final String LOG_TAG = "RokuActivity";
-	private ApplicationPreferences preferences;
-	
-	public static final Integer BUTTON_KEY_TAG = 0;
-	
+		
 	ImageView buttonUp;
 	ImageView buttonDown;
 	ImageView buttonLeft;
@@ -44,12 +38,9 @@ public class RokuActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        preferences = new ApplicationPreferences(getApplicationContext());
         
         setContentView(R.layout.main);
-        
-        EcpClient.getInstance().setIpAddress(preferences.getIpAddress());
-        
+                
         // Directional Pad Buttons
         buttonUp = (ImageView) findViewById(R.id.button_up);
         buttonUp.setTag(R.id.key_type, Key.UP);
