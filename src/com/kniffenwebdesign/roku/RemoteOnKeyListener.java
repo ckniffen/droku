@@ -29,7 +29,8 @@ public class RemoteOnKeyListener implements OnKeyListener, KeyListener {
 				|| KeyEvent.KEYCODE_NOTIFICATION == keyCode
 				|| KeyEvent.KEYCODE_HOME == keyCode
 				|| KeyEvent.KEYCODE_ENVELOPE == keyCode
-				|| KeyEvent.KEYCODE_UNKNOWN == keyCode){
+				|| KeyEvent.KEYCODE_UNKNOWN == keyCode
+				|| KeyEvent.KEYCODE_MENU == keyCode){
 				isCharacter = false;
 			}
 			

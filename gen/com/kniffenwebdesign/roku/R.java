@@ -34,9 +34,9 @@ public final class R {
     }
     public static final class id {
         public static final int LinearLayout01=0x7f050002;
-        public static final int back_home_block=0x7f050020;
+        public static final int back_home_block=0x7f05001f;
         public static final int button_back=0x7f050008;
-        public static final int button_block=0x7f05001f;
+        public static final int button_block=0x7f05001e;
         public static final int button_channels=0x7f05001b;
         public static final int button_down=0x7f050012;
         public static final int button_forward=0x7f050016;
@@ -53,9 +53,8 @@ public final class R {
         public static final int button_up=0x7f05000c;
         public static final int channel_icon=0x7f050001;
         public static final int directional_pad=0x7f05000a;
-        public static final int edit_text_hidden=0x7f05001e;
         public static final int footer_block=0x7f05001a;
-        public static final int footer_buttons=0x7f050021;
+        public static final int footer_buttons=0x7f050020;
         public static final int gridview_channels=0x7f050004;
         public static final int key_type=0x7f050000;
         public static final int linearLayout3=0x7f050007;
@@ -63,7 +62,7 @@ public final class R {
         public static final int linearLayout5=0x7f05000b;
         public static final int linearLayout6=0x7f05000d;
         public static final int linearLayout7=0x7f050011;
-        public static final int menu_setting=0x7f050022;
+        public static final int menu_setting=0x7f050021;
         public static final int progress_channels=0x7f050003;
         public static final int remote_main_block=0x7f050005;
         public static final int replay_info_block=0x7f050017;

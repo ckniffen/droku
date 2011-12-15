@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -17,6 +19,7 @@ import android.widget.RelativeLayout;
 import com.kniffenwebdesign.roku.ecp.*;
 
 public class RokuActivity extends Activity {
+	private static String LOG_TAG = "RokuActivity";
 	
 	RelativeLayout mainView;
 	EditText editTextHidden;
@@ -48,10 +51,15 @@ public class RokuActivity extends Activity {
         
         setContentView(R.layout.main);
         
+        mainView = (RelativeLayout) findViewById(R.id.remote_main_block);
+        mainView.setOnKeyListener(new RemoteOnKeyListener());
+        
+        
+/*
         editTextHidden = (EditText) findViewById(R.id.edit_text_hidden);
         editTextHidden.setOnKeyListener(new RemoteOnKeyListener());
         editTextHidden.setKeyListener(new RemoteOnKeyListener());
-
+*/
         // Directional Pad Buttons
         buttonUp = (ImageView) findViewById(R.id.button_up);
         buttonUp.setTag(R.id.key_type, Key.UP);
@@ -117,9 +125,10 @@ public class RokuActivity extends Activity {
             public void onClick(View v) {
             	//SendTextDialog dialog = new SendTextDialog(RokuActivity.this);
             	//dialog.show();
-            	editTextHidden.requestFocus();
+            	//editTextHidden.requestFocus();
             	InputMethodManager imm = (InputMethodManager) getBaseContext().getSystemService(Context.INPUT_METHOD_SERVICE);     	       
-            	imm.showSoftInput(editTextHidden, InputMethodManager.SHOW_IMPLICIT);
+            	//imm.showSoftInput(editTextHidden, InputMethodManager.SHOW_IMPLICIT);
+            	imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, InputMethodManager.HIDE_IMPLICIT_ONLY);
             }
         });
         
@@ -145,5 +154,49 @@ public class RokuActivity extends Activity {
 	        default:
 	            return super.onOptionsItemSelected(item);
         }
+    }
+    
+    @Override
+	public boolean onKeyUp(int keyCode, KeyEvent event) {
+    	if (KeyEvent.ACTION_UP == event.getAction()) {
+			boolean isCharacter = true;
+			
+			if(KeyEvent.isModifierKey(keyCode) 
+				|| KeyEvent.KEYCODE_ENTER == keyCode
+				|| KeyEvent.KEYCODE_BACK == keyCode
+				|| KeyEvent.KEYCODE_CALL == keyCode
+				|| KeyEvent.KEYCODE_CAMERA == keyCode
+				|| KeyEvent.KEYCODE_ENDCALL == keyCode
+				|| KeyEvent.KEYCODE_VOLUME_DOWN == keyCode
+				|| KeyEvent.KEYCODE_VOLUME_UP == keyCode
+				|| KeyEvent.KEYCODE_SEARCH == keyCode
+				|| KeyEvent.KEYCODE_NOTIFICATION == keyCode
+				|| KeyEvent.KEYCODE_HOME == keyCode
+				|| KeyEvent.KEYCODE_ENVELOPE == keyCode
+				|| KeyEvent.KEYCODE_UNKNOWN == keyCode
+				|| KeyEvent.KEYCODE_MENU == keyCode){
+				isCharacter = false;
+			}
+			
+			if(KeyEvent.KEYCODE_DEL == keyCode){
+				isCharacter = false;
+		   	 	new EcpAsyncTask().execute(Key.BACKSPACE);
+				Log.d(LOG_TAG, "Press key: Go Back");
+			}
+			
+			if(KeyEvent.KEYCODE_SPACE == keyCode){
+				isCharacter = false;
+				new EcpSendLetterAsyncTask().execute(new Character(' '));
+				Log.d(LOG_TAG, "Press key: Space");
+			}
+			
+			if(isCharacter){
+				char character = Character.toChars(event.getUnicodeChar())[0];
+				new EcpSendLetterAsyncTask().execute(new Character(character));
+				Log.d(LOG_TAG, "Press key: " + character);
+			}
+		}
+		
+        return false;
     }
 }
