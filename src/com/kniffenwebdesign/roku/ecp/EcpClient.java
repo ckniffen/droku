@@ -1,5 +1,6 @@
 package com.kniffenwebdesign.roku.ecp;
 
+import java.net.URLEncoder;
 import java.util.ArrayList;
 
 import android.util.Log;
@@ -39,7 +40,7 @@ public class EcpClient {
 	public String executeAction(String action) {
 		String url = this.getBaseUrl() + "/" + action;
 		Log.d(LOG_TAG, url);
-
+		
 		return HttpUtil.request(url, "POST");
 	}
 
@@ -56,7 +57,9 @@ public class EcpClient {
 	}
 
 	public void sendCharacter(char character) {
-		executeAction("keypress/Lit_" + character);
+		String string = new String();
+		string = string + character;
+		executeAction("keypress/Lit_" + URLEncoder.encode(string));
 	}
 	
 

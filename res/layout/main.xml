@@ -4,7 +4,8 @@
     android:layout_height="fill_parent"
     android:background="@drawable/app_background"
     android:gravity="center_horizontal"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:id="@+id/remote_main_block" >
     <LinearLayout
         android:id="@+id/linearLayout30"
         android:layout_width="match_parent"
@@ -179,5 +180,11 @@
             android:layout_weight="0.39"
             android:text="@string/button_search" />
     </LinearLayout>
+
+    <EditText
+        android:id="@+id/edit_text_hidden"
+        android:inputType="text"
+        android:layout_width="20dp"
+        android:layout_height="40dp" />
 
 </RelativeLayout>
