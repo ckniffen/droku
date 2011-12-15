@@ -37,6 +37,7 @@ public class EcpClient {
 	public String getBaseUrl(){
 		return "http://" + this.ipAddress + ":" + this.port;
 	}
+	
 	public String executeAction(String action) {
 		String url = this.getBaseUrl() + "/" + action;
 		Log.d(LOG_TAG, url);
@@ -62,7 +63,6 @@ public class EcpClient {
 		executeAction("keypress/Lit_" + URLEncoder.encode(string));
 	}
 	
-
 	public void sendString(String string) {
 		for (int i = 0; i < string.length(); i++) {
 			sendCharacter(string.charAt(i));
