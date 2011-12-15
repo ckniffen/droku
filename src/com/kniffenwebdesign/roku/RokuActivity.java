@@ -12,17 +12,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 
 import com.kniffenwebdesign.roku.ecp.*;
 
 public class RokuActivity extends Activity {
 	private static String LOG_TAG = "RokuActivity";
-	
-	RelativeLayout mainView;
-	EditText editTextHidden;
 	
 	ImageView buttonUp;
 	ImageView buttonDown;
@@ -50,16 +45,7 @@ public class RokuActivity extends Activity {
         super.onCreate(savedInstanceState);
         
         setContentView(R.layout.main);
-        
-        mainView = (RelativeLayout) findViewById(R.id.remote_main_block);
-        mainView.setOnKeyListener(new RemoteOnKeyListener());
-        
-        
-/*
-        editTextHidden = (EditText) findViewById(R.id.edit_text_hidden);
-        editTextHidden.setOnKeyListener(new RemoteOnKeyListener());
-        editTextHidden.setKeyListener(new RemoteOnKeyListener());
-*/
+
         // Directional Pad Buttons
         buttonUp = (ImageView) findViewById(R.id.button_up);
         buttonUp.setTag(R.id.key_type, Key.UP);
@@ -123,9 +109,6 @@ public class RokuActivity extends Activity {
         buttonTextInput = (Button) findViewById(R.id.button_text_input);
         buttonTextInput.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	//SendTextDialog dialog = new SendTextDialog(RokuActivity.this);
-            	//dialog.show();
-            	//editTextHidden.requestFocus();
             	InputMethodManager imm = (InputMethodManager) getBaseContext().getSystemService(Context.INPUT_METHOD_SERVICE);     	       
             	//imm.showSoftInput(editTextHidden, InputMethodManager.SHOW_IMPLICIT);
             	imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, InputMethodManager.HIDE_IMPLICIT_ONLY);
