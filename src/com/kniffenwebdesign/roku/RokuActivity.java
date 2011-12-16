@@ -109,7 +109,8 @@ public class RokuActivity extends Activity {
         buttonTextInput = (Button) findViewById(R.id.button_text_input);
         buttonTextInput.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	InputMethodManager imm = (InputMethodManager) getBaseContext().getSystemService(Context.INPUT_METHOD_SERVICE);     	       
+            	Context baseContext = getBaseContext();
+            	InputMethodManager imm = (InputMethodManager) baseContext.getSystemService(Context.INPUT_METHOD_SERVICE);     	       
             	imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
             }
         });
@@ -149,6 +150,8 @@ public class RokuActivity extends Activity {
 				|| KeyEvent.KEYCODE_CALL == keyCode
 				|| KeyEvent.KEYCODE_CAMERA == keyCode
 				|| KeyEvent.KEYCODE_ENDCALL == keyCode
+				|| KeyEvent.KEYCODE_POWER == keyCode
+				|| KeyEvent.KEYCODE_FOCUS == keyCode
 				|| KeyEvent.KEYCODE_VOLUME_DOWN == keyCode
 				|| KeyEvent.KEYCODE_VOLUME_UP == keyCode
 				|| KeyEvent.KEYCODE_SEARCH == keyCode
@@ -164,12 +167,6 @@ public class RokuActivity extends Activity {
 				isCharacter = false;
 		   	 	new EcpAsyncTask().execute(Key.BACKSPACE);
 				Log.d(LOG_TAG, "Press key: Go Back");
-			}
-			
-			if(KeyEvent.KEYCODE_SPACE == keyCode){
-				isCharacter = false;
-				new EcpSendLetterAsyncTask().execute(new Character(' '));
-				Log.d(LOG_TAG, "Press key: Space");
 			}
 			
 			if(isCharacter){
