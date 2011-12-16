@@ -110,8 +110,7 @@ public class RokuActivity extends Activity {
         buttonTextInput.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             	InputMethodManager imm = (InputMethodManager) getBaseContext().getSystemService(Context.INPUT_METHOD_SERVICE);     	       
-            	//imm.showSoftInput(editTextHidden, InputMethodManager.SHOW_IMPLICIT);
-            	imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, InputMethodManager.HIDE_IMPLICIT_ONLY);
+            	imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
             }
         });
         
