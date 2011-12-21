@@ -1,4 +1,4 @@
-package com.kniffenwebdesign.roku;
+package com.kniffenwebdesign.roku.ui.main;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,7 +11,11 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.kniffenwebdesign.roku.EcpAsyncTask;
+import com.kniffenwebdesign.roku.EcpSendLetterAsyncTask;
+import com.kniffenwebdesign.roku.R;
 import com.kniffenwebdesign.roku.ecp.*;
+import com.kniffenwebdesign.roku.ui.PreferencesActivity;
 
 public class RokuActivity extends Activity {
 	private static String LOG_TAG = "RokuActivity";

@@ -1,4 +1,8 @@
-package com.kniffenwebdesign.roku;
+package com.kniffenwebdesign.roku.ui.main;
+
+
+import com.kniffenwebdesign.roku.ui.ChannelsActivity;
+import com.kniffenwebdesign.roku.ui.OnClickListenerRequiresWifi;
 
 import android.content.Intent;
 import android.view.View;

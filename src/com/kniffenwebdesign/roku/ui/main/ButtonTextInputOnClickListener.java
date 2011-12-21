@@ -1,4 +1,7 @@
-package com.kniffenwebdesign.roku;
+package com.kniffenwebdesign.roku.ui.main;
+
+
+import com.kniffenwebdesign.roku.ui.OnClickListenerRequiresWifi;
 
 import android.content.Context;
 import android.view.View;
