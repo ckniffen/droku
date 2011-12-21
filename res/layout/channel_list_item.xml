@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="?android:attr/listPreferredItemHeight"
-    android:gravity="center" >
+    android:gravity="center" >
+
+    <TextView
+        android:id="@+id/text_channel_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="default"
+        android:layout_centerHorizontal="true" />
+
     <ImageView
-        android:id="@+id/channel_icon"
+        android:id="@+id/image_channel_icon"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_gravity="center"
-        android:scaleType="fitCenter"
-        android:src="@drawable/channel_fpo" />
+        android:scaleType="fitCenter" />
 
-</LinearLayout>
+</RelativeLayout>

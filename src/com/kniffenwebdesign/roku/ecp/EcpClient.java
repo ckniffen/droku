@@ -98,7 +98,7 @@ public class EcpClient {
 			channel.setId(id);
 			channel.setVersion(version);
 			channel.setName(name);
-			channel.loadBitmap();
+			//channel.loadBitmap();
 			channels.add(channel);
 		}
 

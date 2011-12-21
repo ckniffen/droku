@@ -4,16 +4,17 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.kniffenwebdesign.roku.R;
 import com.kniffenwebdesign.roku.ecp.Channel;
 import com.kniffenwebdesign.roku.ecp.EcpClient;
+import com.kniffenwebdesign.roku.utils.BitmapManager;
 
 public class ChannelAdapter extends ArrayAdapter<Channel> {
 	private ArrayList<Channel> items;
@@ -35,19 +36,21 @@ public class ChannelAdapter extends ArrayAdapter<Channel> {
 		}
 		final Channel channel = items.get(position);
 		if (channel != null) {
-			ImageView channelIcon = (ImageView) view
-					.findViewById(R.id.channel_icon);
+			TextView text = (TextView) view.findViewById(R.id.text_channel_name);
+			text.setText(channel.getName());
+			
+			ImageView channelIcon = (ImageView) view.findViewById(R.id.image_channel_icon);
 
-			channelIcon.setOnClickListener(new View.OnClickListener() {
+			view.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View view) {
 					EcpClient.getInstance().launchChannel(channel.getId());
+					
 					Activity activity = (Activity) getContext();
 					activity.finish();
 				}
 			});
-
-			Bitmap bitmap = channel.getIconBitmap();
-			channelIcon.setImageBitmap(bitmap);
+			BitmapManager.INSTANCE.loadBitmap(channel.getImageUrl(), channelIcon);  
+			
 		}
 		return view;
 	}
