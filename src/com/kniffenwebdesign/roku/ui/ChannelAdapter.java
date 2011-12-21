@@ -40,7 +40,7 @@ public class ChannelAdapter extends ArrayAdapter<Channel> {
 			text.setText(channel.getName());
 			
 			ImageView channelIcon = (ImageView) view.findViewById(R.id.image_channel_icon);
-
+			
 			view.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View view) {
 					EcpClient.getInstance().launchChannel(channel.getId());
@@ -50,7 +50,6 @@ public class ChannelAdapter extends ArrayAdapter<Channel> {
 				}
 			});
 			BitmapManager.INSTANCE.loadBitmap(channel.getImageUrl(), channelIcon);  
-			
 		}
 		return view;
 	}
