@@ -1,7 +1,6 @@
 package com.kniffenwebdesign.roku;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,8 +8,6 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -99,21 +96,10 @@ public class RokuActivity extends Activity {
 
         // Footer Buttons
         buttonChannels = (Button) findViewById(R.id.button_channels);
-        buttonChannels.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-            	Intent i = new Intent(RokuActivity.this, ChannelsActivity.class);
-            	startActivity(i);
-            }
-        });
+        buttonChannels.setOnClickListener(new ChannelButtonOnClickListener());
         
         buttonTextInput = (Button) findViewById(R.id.button_text_input);
-        buttonTextInput.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-            	Context baseContext = getBaseContext();
-            	InputMethodManager imm = (InputMethodManager) baseContext.getSystemService(Context.INPUT_METHOD_SERVICE);     	       
-            	imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
-            }
-        });
+        buttonTextInput.setOnClickListener(new ButtonTextInputOnClickListener());
         
         buttonSearch = (Button) findViewById(R.id.button_search);
         buttonSearch.setTag(R.id.key_type, Key.SEARCH);
@@ -173,7 +159,7 @@ public class RokuActivity extends Activity {
 				char character = Character.toChars(event.getUnicodeChar())[0];
 				new EcpSendLetterAsyncTask().execute(new Character(character));
 				Log.d(LOG_TAG, "Press key: " + character);
-			}
+			}	
 		}
 		
         return false;

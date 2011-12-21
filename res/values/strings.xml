@@ -20,5 +20,7 @@
     <string name="title_ip_address_preference">IP Address</string>
     <string name="summary_ip_address_preference">The IP address for your Roku.</string>    
     <string name="dialog_title_ip_address_preference">IP Address</string>
-        
+    
+    <string name="wifi_disabled_message">Please enable wifi</string>
+    
 </resources>

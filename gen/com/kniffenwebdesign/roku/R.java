@@ -97,6 +97,7 @@ public final class R {
          */
         public static final int title_ip_address_preference=0x7f060009;
         public static final int title_preferences_activity=0x7f060007;
+        public static final int wifi_disabled_message=0x7f06000c;
     }
     public static final class style {
         public static final int app_theme=0x7f070000;

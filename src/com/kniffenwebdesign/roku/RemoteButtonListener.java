@@ -4,11 +4,12 @@ import android.content.Context;
 import android.os.Vibrator;
 import android.view.MotionEvent;
 import android.view.View;
+import com.kniffenwebdesign.roku.R;
 
 import com.kniffenwebdesign.roku.ecp.Key;
 
-public class RemoteButtonListener implements View.OnClickListener, View.OnTouchListener {
-	public void onClick(View view) {
+public class RemoteButtonListener extends OnClickListenerRequiresWifi {
+	public void onClickHandler(View view) {
 		Vibrator vibrator = (Vibrator) view.getContext().getSystemService(Context.VIBRATOR_SERVICE);
 		vibrator.vibrate(50);
 		
